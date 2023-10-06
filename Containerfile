@@ -1,14 +1,16 @@
-FROM alpine:latest
+FROM opensuse/tumbleweed:latest
 
-RUN apk add elinks
+RUN zypper in -y elinks mujs
 
-RUN adduser -D elinks
+RUN useradd elinks
 
 USER elinks
 
 WORKDIR /home/elinks
 
 RUN mkdir ./.elinks
+
+COPY --chown=elinks elinks.conf ./.elinks/
 
 ENTRYPOINT ["/usr/bin/elinks"]
 

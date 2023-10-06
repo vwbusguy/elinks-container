@@ -1,6 +1,6 @@
 FROM opensuse/tumbleweed:latest
 
-RUN zypper in -y elinks mujs
+RUN zypper in -y elinks libmozjs-102-0
 
 RUN useradd elinks
 
